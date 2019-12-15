@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Request from '../helpers/request.js'
+import Request from '../helpers/request'
 
 class ParkBox extends Component {
 
@@ -11,8 +11,8 @@ class ParkBox extends Component {
   }
 
   componentDidMount(){
-    const request = new Request()
-    request.get("http://localhost:8080/paddocks")
+    const request = new Request();
+    request.get('http://localhost:8080/paddocks')
     .then((data) => {
       this.setState({paddocks: data._embedded.paddocks})
     })

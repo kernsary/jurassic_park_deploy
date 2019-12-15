@@ -1,4 +1,5 @@
 import React from 'react'
+import DinosaurList from './DinosaurList'
 
 const PaddockList = (props) => {
 
@@ -6,20 +7,21 @@ const PaddockList = (props) => {
     return(<p>Loading ...</p>)
   }
 
-  const paddocks = props.paddocks.map((paddock, index) => {
+  const paddockNodes = props.paddocks.map((paddock, index) => {
     return(
       <li key={index} className="paddock-item">
       <h3>{paddock.name}</h3>
+      <DinosaurList dinosaurs={paddock.dinosaurs}
+      />
       </li>
     )
-
   }
 )
 
 return (
   <ul className="paddock-list">
   {paddockNodes}
-  <ul/>
+  </ul>
 )
 }
 

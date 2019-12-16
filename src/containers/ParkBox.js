@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import PaddockList from '../components/PaddockList';
 import Request from '../helpers/request.js'
 import PaddockCreateForm from "../components/PaddockCreateForm.js"
+import DinosaurCreateForm from "../components/DinosaurCreateForm.js"
 
 class ParkBox extends Component {
 
@@ -12,6 +13,7 @@ class ParkBox extends Component {
     }
     this.getPaddocks = this.getPaddocks.bind(this);
     this.handlePaddockPost = this.handlePaddockPost.bind(this);
+    this.createDinosaur = this.createDinosaur.bind(this);
   }
 
   getPaddocks(){
@@ -32,12 +34,20 @@ class ParkBox extends Component {
 
   }
 
+  createDinosaur(newDinosaur){
+    const request = new Request()
+    request.post('/dinosaurs', newDinosaur).then(()=>this.getPaddocks())
+  }
+
   render(){
     return(
       <div>
-      <PaddockList paddocks={this.state.paddocks}/>
+
       <PaddockCreateForm paddocks={this.state.paddocks}
       onFormSubmit={this.handlePaddockPost}/>
+      <DinosaurCreateForm paddocks={this.state.paddocks}
+      createDinosaur={this.createDinosaur}/>
+      <PaddockList paddocks={this.state.paddocks}/>
       </div>
     )
   }

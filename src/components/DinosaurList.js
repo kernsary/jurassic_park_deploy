@@ -7,7 +7,6 @@ const DinosaurList = (props) => {
     return(
       <li key={index} className="dinosaur-item">
       <h4>{dinosaur.species}</h4>
-      <p>{dinosaur.foodType}</p>
       </li>
     )
   })

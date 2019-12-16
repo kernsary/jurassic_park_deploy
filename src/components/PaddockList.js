@@ -12,6 +12,7 @@ const PaddockList = (props) => {
       <li key={index} className="paddock-item">
       <h3>{paddock.name}</h3>
       <DinosaurList dinosaurs={paddock.dinosaurs}
+      onDelete={props.onDelete}
       />
       </li>
     )

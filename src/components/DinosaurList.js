@@ -1,4 +1,5 @@
 import React from 'react'
+import DeleteButton from './DeleteButton'
 
 const DinosaurList = (props) => {
 
@@ -7,6 +8,7 @@ const DinosaurList = (props) => {
     return(
       <li key={index} className="dinosaur-item">
       <h4>{dinosaur.species}</h4>
+      <DeleteButton id={dinosaur.id} onDelete={props.onDelete}/>
       </li>
     )
   })

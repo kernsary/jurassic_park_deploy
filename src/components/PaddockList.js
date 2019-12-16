@@ -20,11 +20,7 @@ const PaddockList = (props) => {
 
 return (
   <ul className="paddock-list">
-<<<<<<< HEAD
-  {paddocks}
-=======
   {paddockNodes}
->>>>>>> develop
   </ul>
 )
 }

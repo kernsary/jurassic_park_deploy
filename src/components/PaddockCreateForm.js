@@ -6,9 +6,10 @@ class PaddockCreateForm extends Component {
     super(props)
     this.state = {
       name: ""
-  }
+    }
 
     this.handleName = this.handleName.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 
   }
 
@@ -16,39 +17,28 @@ class PaddockCreateForm extends Component {
     this.setState({name: event.target.value})
   }
 
-handleSubmit(event) {
+  handleSubmit(event) {
     event.preventDefault();
-    const newPaddock = {
-      name: this.state.name
-    }
-    this.props.onFormSubmit(newPaddock);
+
+    this.props.onFormSubmit(this.state);
+    this.setState({name: ""})
+
   }
 
   render() {
 
+  return (
+    <div>
+    <form onSubmit={this.handleSubmit}>
 
+    <input type="text" placeholder="Name" name="name"
+    onChange={this.handleName} value={this.state.name} />
 
-    const paddocks = this.props.paddocks.map((paddock, index) => {
-      return(
-        <li key={index} className="paddock-item">
-        <h3>{paddock.name}</h3>
-        </li>
-      )
-
-    }
+    <button type="submit" >Save</button>
+    </form>
+    </div>
   )
-
-    return (
-        <div>
-          <form>
-          <input type="text" placeholder="Name" name="name"
-          onChange={this.handleName} value={this.state.name} />
-
-        <button type="submit">Save</button>
-        </form>
-        </div>
-      )
-  }
+}
 }
 
 export default PaddockCreateForm;

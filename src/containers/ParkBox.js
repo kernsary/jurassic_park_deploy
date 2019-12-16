@@ -8,23 +8,13 @@ class ParkBox extends Component {
   constructor(props){
     super(props)
     this.state = {
-      paddocks: [
-        // {name: "Swamp",
-        // dinosaurs: [
-        //   {species: "T Rex", foodType: "meat"},
-        //   {species: "T Rex", foodType: "meat"}
-        // ]},
-        // {name: "Mire",
-        // dinosaurs: [
-        //   {species: "Bronto", foodType: "plants"},
-        //   {species: "Diplo", foodType: "plants"}
-        // ]}
-      ]
+      paddocks: []
     }
-    // this.dummyFunction = this.dummyFunction.bind(this);
+    this.getPaddocks = this.getPaddocks.bind(this);
+    this.handlePaddockPost = this.handlePaddockPost.bind(this);
   }
 
-  componentDidMount(){
+  getPaddocks(){
     const request = new Request()
     request.get('/paddocks')
     .then((data) => {
@@ -32,15 +22,22 @@ class ParkBox extends Component {
     })
   }
 
-  dummyFunction(){}
+  componentDidMount(){
+    this.getPaddocks()
+  }
+
+  handlePaddockPost(newPaddock){
+    const request = new Request()
+    request.post('/paddocks', newPaddock).then(()=>this.getPaddocks())
+    // this.getPaddocks()
+  }
 
   render(){
     return(
       <div>
-      <PaddockList paddocks={this.state.paddocks}
-      />
+      <PaddockList paddocks={this.state.paddocks}/>
       <PaddockCreateForm paddocks={this.state.paddocks}
-      onHandleSubmit={this.dummyFunction}/>
+      onFormSubmit={this.handlePaddockPost}/>
       </div>
     )
   }

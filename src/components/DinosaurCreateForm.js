@@ -53,12 +53,12 @@ class DinosaurCreateForm extends Component {
     <label id="species" value="species">Enter species: </label>
     <input id="species" type="text" onChange={this.handleSpecies}/>
     <select onChange={this.handleFoodType}>
-    <option disabled defaultValue>Choose food type</option>
+    <option disabled value>Choose food type</option>
     <option value="meat">Meat</option>
     <option value="plants">Plants</option>
     </select>
     <select onChange={this.handlePaddock}>
-    <option disabled defaultValue>Choose paddock</option>
+    <option disabled value>Choose paddock</option>
       {paddockNodes}
     </select>
     <button type="submit">Save</button>

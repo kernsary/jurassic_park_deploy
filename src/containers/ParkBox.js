@@ -11,6 +11,7 @@ class ParkBox extends Component {
       paddocks: []
     }
 
+    this.getPaddocks = this.getPaddocks.bind(this)
     this.createDinosaur = this.createDinosaur.bind(this)
   }
 
@@ -22,13 +23,18 @@ class ParkBox extends Component {
     })
   }
 
-  createDinosaur(dinosaur){
-    const request = new Request()
-    request.post('/dinosaurs', dinosaur)
-    request.get('/paddocks')
+  getPaddocks(){
+    const request1 = new Request()
+    request1.get('/paddocks')
     .then((data) => {
       this.setState({paddocks: data._embedded.paddocks})
     })
+  }
+
+  createDinosaur(dinosaur){
+    const request = new Request()
+    request.post('/dinosaurs', dinosaur)
+    this.getPaddocks()
   }
 
   render(){

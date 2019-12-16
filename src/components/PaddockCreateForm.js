@@ -29,9 +29,10 @@ class PaddockCreateForm extends Component {
 
   return (
     <div>
+    <h1>Create a new paddock</h1>
     <form onSubmit={this.handleSubmit}>
-
-    <input type="text" placeholder="Name" name="name"
+    <label id="name">Enter the paddock's name: </label>
+    <input id="name" type="text" placeholder="Name" name="name"
     onChange={this.handleName} value={this.state.name} />
 
     <button type="submit" >Save</button>

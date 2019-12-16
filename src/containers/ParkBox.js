@@ -29,7 +29,7 @@ class ParkBox extends Component {
   handlePaddockPost(newPaddock){
     const request = new Request()
     request.post('/paddocks', newPaddock).then(()=>this.getPaddocks())
-    // this.getPaddocks()
+
   }
 
   render(){

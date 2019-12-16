@@ -23,7 +23,7 @@ class ParkBox extends Component {
   }
 
   componentDidMount(){
-    const request = new Request();
+    const request = new Request()
     request.get('/paddocks')
     .then((data) => {
       this.setState({paddocks: data._embedded.paddocks})

@@ -1,5 +1,6 @@
 import React from 'react'
 import DeleteButton from './DeleteButton'
+import MoveButton from './MoveButton'
 
 const DinosaurList = (props) => {
 
@@ -9,6 +10,7 @@ const DinosaurList = (props) => {
       <li key={index} className="dinosaur-item">
       <h4>{dinosaur.species}</h4>
       <DeleteButton id={dinosaur.id} onDelete={props.onDelete}/>
+      <MoveButton id={dinosaur.id} foodType={dinosaur.foodType} onMove={props.onMove}/>
       </li>
     )
   })

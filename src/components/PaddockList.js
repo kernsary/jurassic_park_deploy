@@ -13,6 +13,7 @@ const PaddockList = (props) => {
       <h3>{paddock.name}</h3>
       <DinosaurList dinosaurs={paddock.dinosaurs}
       onDelete={props.onDelete}
+      onMove={props.onMove}
       />
       </li>
     )

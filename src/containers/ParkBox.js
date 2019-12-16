@@ -15,6 +15,7 @@ class ParkBox extends Component {
     this.handlePaddockPost = this.handlePaddockPost.bind(this);
     this.createDinosaur = this.createDinosaur.bind(this);
     this.deleteDinosaur = this.deleteDinosaur.bind(this);
+    this.moveDinosaur = this.moveDinosaur.bind(this);
   }
 
   getPaddocks(){
@@ -45,6 +46,10 @@ class ParkBox extends Component {
     request.delete('/dinosaurs/' + id).then(() => this.getPaddocks())
   }
 
+  moveDinosaur(id, paddock){
+
+  }
+
   render(){
     return(
       <div>
@@ -53,7 +58,10 @@ class ParkBox extends Component {
       onFormSubmit={this.handlePaddockPost}/>
       <DinosaurCreateForm paddocks={this.state.paddocks}
       createDinosaur={this.createDinosaur}/>
-      <PaddockList paddocks={this.state.paddocks} onDelete={this.deleteDinosaur}/>
+      <PaddockList paddocks={this.state.paddocks}
+      onDelete={this.deleteDinosaur}
+      onMove={this.moveDinosaur}
+      />
       </div>
     )
   }

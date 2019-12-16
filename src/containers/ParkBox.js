@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
+import PaddockList from '../components/PaddockList';
 import Request from '../helpers/request.js'
+import PaddockCreateForm from "../components/PaddockCreateForm.js"
 
 class ParkBox extends Component {
 
@@ -8,19 +10,24 @@ class ParkBox extends Component {
     this.state = {
       paddocks: []
     }
+    // this.dummyFunction = this.dummyFunction.bind(this);
   }
 
   componentDidMount(){
-    const request = new Request()
-    request.get("http://localhost:8080/paddocks")
+    const request = new Request();
+
+    request.get('/paddocks')
     .then((data) => {
       this.setState({paddocks: data._embedded.paddocks})
     })
   }
 
+  dummyFunction(){}
+
   render(){
     return(
-      <p>This is the ParkBox</p>
+      <PaddockCreateForm paddocks={this.state.paddocks}
+      onHandleSubmit={this.dummyFunction}/>
     )
   }
 }

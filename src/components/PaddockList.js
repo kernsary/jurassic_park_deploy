@@ -18,8 +18,8 @@ const PaddockList = (props) => {
 
 return (
   <ul className="paddock-list">
-  {paddockNodes}
-  <ul/>
+  {paddocks}
+  </ul>
 )
 }
 

@@ -1,24 +1,14 @@
 import React, {Component} from 'react'
 import Request from '../helpers/request'
 import PaddockList from '../components/PaddockList'
+import DinosaurCreateForm from '../components/DinosaurCreateForm'
 
 class ParkBox extends Component {
 
   constructor(props){
     super(props)
     this.state = {
-      paddocks: [
-        // {name: "Swamp",
-        // dinosaurs: [
-        //   {species: "T Rex", foodType: "meat"},
-        //   {species: "T Rex", foodType: "meat"}
-        // ]},
-        // {name: "Mire",
-        // dinosaurs: [
-        //   {species: "Bronto", foodType: "plants"},
-        //   {species: "Diplo", foodType: "plants"}
-        // ]}
-      ]
+      paddocks: []
     }
   }
 
@@ -35,6 +25,7 @@ class ParkBox extends Component {
       <div>
       <PaddockList paddocks={this.state.paddocks}
       />
+      <DinosaurCreateForm />
       </div>
     )
   }

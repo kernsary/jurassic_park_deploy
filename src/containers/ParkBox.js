@@ -11,15 +11,15 @@ class ParkBox extends Component {
     super(props)
     this.state = {
       paddocks: [],
-      showMoveForm: false,
+      showBoolean: false,
       chosenDinosaur: null
     }
     this.getPaddocks = this.getPaddocks.bind(this);
     this.handlePaddockPost = this.handlePaddockPost.bind(this);
     this.createDinosaur = this.createDinosaur.bind(this);
     this.deleteDinosaur = this.deleteDinosaur.bind(this);
-    this.moveDinosaur = this.moveDinosaur.bind(this);
-    this.toggleShowForm = this.toggleShowForm.bind(this);
+    this.patchDinosaur = this.patchDinosaur.bind(this);
+    this.toggleShowBoolean = this.toggleShowBoolean.bind(this);
     this.showMoveForm = this.showMoveForm.bind(this);
   }
 
@@ -51,17 +51,19 @@ class ParkBox extends Component {
     request.delete('/dinosaurs/' + id).then(() => this.getPaddocks())
   }
 
-  moveDinosaur(id, paddock){
-
-  }
-
-  toggleShowForm(){
-    this.state.showMoveForm ? this.setState({showMoveForm: false}) : this.setState({showMoveForm: true})
+  toggleShowBoolean(){
+    this.state.showBoolean ? this.setState({showBoolean: false}) : this.setState({showBoolean: true})
   }
 
   showMoveForm(id){
     this.setState({chosenDinosaur: id})
-    this.toggleShowForm()
+    this.toggleShowBoolean()
+  }
+
+  patchDinosaur(paddock){
+    const request = new Request()
+    request.patch("/dinosaurs/" + this.state.chosenDinosaur, paddock).then(()=>this.getPaddocks())
+    this.toggleShowBoolean()
   }
 
   render(){
@@ -72,7 +74,7 @@ class ParkBox extends Component {
       onFormSubmit={this.handlePaddockPost}/>
       <DinosaurCreateForm paddocks={this.state.paddocks}
       createDinosaur={this.createDinosaur}/>
-      <MoveForm show={this.state.showMoveForm} paddocks={this.state.paddocks}/>
+      <MoveForm show={this.state.showBoolean} patchDinosaur={this.patchDinosaur} paddocks={this.state.paddocks}/>
       <PaddockList paddocks={this.state.paddocks}
       onDelete={this.deleteDinosaur}
       onMove={this.showMoveForm}

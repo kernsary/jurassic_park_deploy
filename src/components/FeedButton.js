@@ -6,12 +6,16 @@ class FeedButton extends Component{
     super(props)
     this.state ={
       showBoolean: true,
-      killTimer: setTimeout(()=>this.killDinoIfNotFed(), 10000)
+      killTimer: null
     }
 
     this.toggleShowBoolean = this.toggleShowBoolean.bind(this)
     this.buttonDisappear = this.buttonDisappear.bind(this)
     this.killDinoIfNotFed = this.killDinoIfNotFed.bind(this)
+  }
+
+  componentDidMount(){
+    this.setState({killTimer: setTimeout(()=>this.killDinoIfNotFed(), 10000)})
   }
 
   toggleShowBoolean(){
@@ -27,20 +31,27 @@ class FeedButton extends Component{
 
   killDinoIfNotFed(){
     if(this.state.showBoolean){
-      this.props.onDelete(this.props.id)
+      if(this.props.dinosaur.foodType === "meat" && this.props.dinosaurs.length >= 2){
+        const otherDinos = this.props.dinosaurs.filter(dinosaur => dinosaur.id !== this.props.dinosaur.id)
+        this.props.onDelete(otherDinos[0].id)
+        this.buttonDisappear()
+      }
+      else {
+        this.props.onDelete(this.props.dinosaur.id)
+      }
     }
   }
 
-render(){
-  if(this.state.showBoolean){
-  return(
-    <button onClick={this.buttonDisappear}>Feed me!</button>
-  )
-}
-return(
-  <p>Fed</p>
-)
-}
+  render(){
+    if(this.state.showBoolean){
+      return(
+        <button onClick={this.buttonDisappear}>Feed me!</button>
+      )
+    }
+    return(
+      <p>Fed</p>
+    )
+  }
 
 }
 

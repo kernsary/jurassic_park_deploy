@@ -10,7 +10,7 @@ const DinosaurList = (props) => {
     return(
       <li key={index} className="dinosaur-item">
       <h4>{dinosaur.species}</h4>
-      <FeedButton/>
+      <FeedButton id={dinosaur.id} onDelete={props.onDelete}/>
       <DeleteButton id={dinosaur.id} onDelete={props.onDelete}/>
       <MoveButton id={dinosaur.id} foodType={dinosaur.foodType} onMove={props.onMove}/>
       </li>

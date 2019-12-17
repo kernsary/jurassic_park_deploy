@@ -5,11 +5,13 @@ class FeedButton extends Component{
   constructor(props){
     super(props)
     this.state ={
-      showBoolean: true
+      showBoolean: true,
+      killTimer: setTimeout(()=>this.killDinoIfNotFed(), 10000)
     }
 
     this.toggleShowBoolean = this.toggleShowBoolean.bind(this)
     this.buttonDisappear = this.buttonDisappear.bind(this)
+    this.killDinoIfNotFed = this.killDinoIfNotFed.bind(this)
   }
 
   toggleShowBoolean(){
@@ -17,8 +19,16 @@ class FeedButton extends Component{
   }
 
   buttonDisappear(){
+    clearTimeout(this.state.killTimer)
     this.toggleShowBoolean()
-    setTimeout(()=>this.toggleShowBoolean(), 30000)
+    setTimeout(()=>this.toggleShowBoolean(), 10000)
+    this.setState({killTimer: setTimeout(()=>this.killDinoIfNotFed(), 20000)})
+  }
+
+  killDinoIfNotFed(){
+    if(this.state.showBoolean){
+      this.props.onDelete(this.props.id)
+    }
   }
 
 render(){

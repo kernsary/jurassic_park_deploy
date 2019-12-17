@@ -11,7 +11,8 @@ class ParkBox extends Component {
     super(props)
     this.state = {
       paddocks: [],
-      showMoveForm: false
+      showMoveForm: false,
+      chosenDinosaur: null
     }
     this.getPaddocks = this.getPaddocks.bind(this);
     this.handlePaddockPost = this.handlePaddockPost.bind(this);
@@ -19,6 +20,7 @@ class ParkBox extends Component {
     this.deleteDinosaur = this.deleteDinosaur.bind(this);
     this.moveDinosaur = this.moveDinosaur.bind(this);
     this.toggleShowForm = this.toggleShowForm.bind(this);
+    this.showMoveForm = this.showMoveForm.bind(this);
   }
 
   getPaddocks(){
@@ -57,6 +59,11 @@ class ParkBox extends Component {
     this.state.showMoveForm ? this.setState({showMoveForm: false}) : this.setState({showMoveForm: true})
   }
 
+  showMoveForm(id){
+    this.setState({chosenDinosaur: id})
+    this.toggleShowForm()
+  }
+
   render(){
     return(
       <div>
@@ -65,10 +72,10 @@ class ParkBox extends Component {
       onFormSubmit={this.handlePaddockPost}/>
       <DinosaurCreateForm paddocks={this.state.paddocks}
       createDinosaur={this.createDinosaur}/>
-      <MoveForm show={this.state.showMoveForm}/>
+      <MoveForm show={this.state.showMoveForm} paddocks={this.state.paddocks}/>
       <PaddockList paddocks={this.state.paddocks}
       onDelete={this.deleteDinosaur}
-      onMove={this.toggleShowForm}
+      onMove={this.showMoveForm}
       />
       </div>
     )

@@ -5,7 +5,7 @@ const MoveForm = (props) => {
 if(props.show){
   return(
     <div>
-    <h1>This is a move form</h1>
+    <h1>Choose which paddock to move your dinosaur to</h1>
     </div>
   )
 }

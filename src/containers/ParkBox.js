@@ -3,19 +3,22 @@ import PaddockList from '../components/PaddockList';
 import Request from '../helpers/request.js'
 import PaddockCreateForm from "../components/PaddockCreateForm.js"
 import DinosaurCreateForm from "../components/DinosaurCreateForm.js"
+import MoveForm from "../components/MoveForm.js"
 
 class ParkBox extends Component {
 
   constructor(props){
     super(props)
     this.state = {
-      paddocks: []
+      paddocks: [],
+      showMoveForm: false
     }
     this.getPaddocks = this.getPaddocks.bind(this);
     this.handlePaddockPost = this.handlePaddockPost.bind(this);
     this.createDinosaur = this.createDinosaur.bind(this);
     this.deleteDinosaur = this.deleteDinosaur.bind(this);
     this.moveDinosaur = this.moveDinosaur.bind(this);
+    this.toggleShowForm = this.toggleShowForm.bind(this);
   }
 
   getPaddocks(){
@@ -50,6 +53,10 @@ class ParkBox extends Component {
 
   }
 
+  toggleShowForm(){
+    this.state.showMoveForm ? this.setState({showMoveForm: false}) : this.setState({showMoveForm: true})
+  }
+
   render(){
     return(
       <div>
@@ -58,9 +65,10 @@ class ParkBox extends Component {
       onFormSubmit={this.handlePaddockPost}/>
       <DinosaurCreateForm paddocks={this.state.paddocks}
       createDinosaur={this.createDinosaur}/>
+      <MoveForm show={this.state.showMoveForm}/>
       <PaddockList paddocks={this.state.paddocks}
       onDelete={this.deleteDinosaur}
-      onMove={this.moveDinosaur}
+      onMove={this.toggleShowForm}
       />
       </div>
     )

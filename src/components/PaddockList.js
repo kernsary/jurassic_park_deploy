@@ -21,9 +21,9 @@ const PaddockList = (props) => {
 )
 
 return (
-  <ul className="paddock-list">
+  <div className="paddock-wrapper">
   {paddockNodes}
-  </ul>
+  </div>
 )
 }
 

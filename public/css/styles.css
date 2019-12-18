@@ -1,9 +1,42 @@
-body {
+/* body {
   height: 800px;
   background-image: url("https://i.pinimg.com/564x/2a/0e/4a/2a0e4aedfe11ec30c9fc5b6f20567479.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  font-family: 'Permanent Marker';
+  /* font-family: 'Permanent Marker'; */
+
+/* } */
+
+.body-wrapper {
+  display: flex;
+  flex-direction: row;
+  font-family: Courier, sans-serif;
+  height: 800px;
+  background-image: url("https://i.pinimg.com/564x/2a/0e/4a/2a0e4aedfe11ec30c9fc5b6f20567479.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.bar-wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.bar-item {
+
+}
+
+.paddock-wrapper {
+  display: flex;
+  flex-direction: row;
+  background-color: yellow;
+
+}
+
+.paddock-item {
+  font-family: Times;
 
 }

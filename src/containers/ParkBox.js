@@ -82,19 +82,26 @@ class ParkBox extends Component {
     }
 
     return(
-      <div>
+      <div className="body-wrapper">
+      <div className="bar-wrapper">
+      <div className="bar-item">
       <h1>Dinoworld</h1>
       <h3>Can you keep enough dinosaurs alive to win?</h3>
-      <p>Dinosaurs in park: {this.state.livingDinosaurs}</p>
-      <PaddockCreateForm paddocks={this.state.paddocks}
+      <h3>They are hungry!</h3>
+      <h3>Dinosaurs in park: {this.state.livingDinosaurs}</h3>
+      </div>
+      <PaddockCreateForm className="bar-item" paddocks={this.state.paddocks}
       onFormSubmit={this.handlePaddockPost}/>
-      <DinosaurCreateForm paddocks={this.state.paddocks}
+      <DinosaurCreateForm className="bar-item"paddocks={this.state.paddocks}
       createDinosaur={this.createDinosaur}/>
-      <MoveForm show={this.state.showBoolean} patchDinosaur={this.patchDinosaur} paddocks={this.state.paddocks}/>
+      <MoveForm className="bar-item"show={this.state.showBoolean} patchDinosaur={this.patchDinosaur} paddocks={this.state.paddocks}/>
+      </div>
+      <div className="paddock-wrapper">
       <PaddockList paddocks={this.state.paddocks}
       onDelete={this.deleteDinosaur}
       onMove={this.showMoveForm}
       />
+      </div>
       </div>
     )
   }

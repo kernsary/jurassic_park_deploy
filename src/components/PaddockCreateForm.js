@@ -31,7 +31,7 @@ class PaddockCreateForm extends Component {
     <div>
     <h2>Create a new paddock</h2>
     <form onSubmit={this.handleSubmit}>
-    <h4><label id="name">Enter the paddock's name: </label></h4>
+    <h4><label id="name">Paddock name: </label></h4>
     <input id="name" type="text" placeholder="Name" name="name"
     onChange={this.handleName} value={this.state.name} />
 

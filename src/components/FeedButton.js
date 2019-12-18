@@ -15,7 +15,7 @@ class FeedButton extends Component{
   }
 
   componentDidMount(){
-    this.setState({killTimer: setTimeout(()=>this.killDinoIfNotFed(), 10000)})
+    this.setState({killTimer: setTimeout(()=>this.killDinoIfNotFed(), 20000)})
   }
 
   toggleShowBoolean(){
@@ -25,8 +25,8 @@ class FeedButton extends Component{
   buttonDisappear(){
     clearTimeout(this.state.killTimer)
     this.toggleShowBoolean()
-    setTimeout(()=>this.toggleShowBoolean(), 10000)
-    this.setState({killTimer: setTimeout(()=>this.killDinoIfNotFed(), 20000)})
+    setTimeout(()=>this.toggleShowBoolean(), 20000)
+    this.setState({killTimer: setTimeout(()=>this.killDinoIfNotFed(), 40000)})
   }
 
   killDinoIfNotFed(){
@@ -49,7 +49,7 @@ class FeedButton extends Component{
       )
     }
     return(
-      <p></p>
+      <div></div>
     )
   }
 

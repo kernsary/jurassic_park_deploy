@@ -7,7 +7,7 @@ const DeleteButton = (props) => {
   }
 
   return(
-    <button onClick={handleDelete}>Remove dinosaur</button>
+    <button onClick={handleDelete}>Kill</button>
   )
 }
 

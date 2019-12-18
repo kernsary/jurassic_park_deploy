@@ -19,10 +19,32 @@
   background-position: center;
 }
 
+li {
+  list-style: none;
+}
+
+h1 {
+  line-height: 0.5rem;
+}
+
+h4 {
+  line-height: 0.5rem;
+}
+
+input, select {
+  margin: 0.5rem;
+}
+
 .bar-wrapper {
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: YellowGreen;
+  margin: 3rem 3rem 3rem 3rem;
+  height: 600px;
+  width: 400px;
+  padding: 0.5rem 0.5rem;
+  border: 0px none;
+  border-radius: 3%;
 }
 
 .bar-item {

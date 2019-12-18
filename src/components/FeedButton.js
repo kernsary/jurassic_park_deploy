@@ -11,11 +11,11 @@ class FeedButton extends Component{
 
     this.toggleShowBoolean = this.toggleShowBoolean.bind(this)
     this.buttonDisappear = this.buttonDisappear.bind(this)
-    this.killDinoIfNotFed = this.killDinoIfNotFed.bind(this)
+    // this.killDinoIfNotFed = this.killDinoIfNotFed.bind(this)
   }
 
   componentDidMount(){
-    this.setState({killTimer: setTimeout(()=>this.killDinoIfNotFed(), 10000)})
+    // this.setState({killTimer: setTimeout(()=>this.killDinoIfNotFed(), 10000)})
   }
 
   toggleShowBoolean(){
@@ -29,18 +29,18 @@ class FeedButton extends Component{
     this.setState({killTimer: setTimeout(()=>this.killDinoIfNotFed(), 20000)})
   }
 
-  killDinoIfNotFed(){
-    if(this.state.showBoolean){
-      if(this.props.dinosaur.foodType === "meat" && this.props.dinosaurs.length >= 2){
-        const otherDinos = this.props.dinosaurs.filter(dinosaur => dinosaur.id !== this.props.dinosaur.id)
-        this.props.onDelete(otherDinos[0].id)
-        this.buttonDisappear()
-      }
-      else {
-        this.props.onDelete(this.props.dinosaur.id)
-      }
-    }
-  }
+  // killDinoIfNotFed(){
+  //   if(this.state.showBoolean){
+  //     if(this.props.dinosaur.foodType === "meat" && this.props.dinosaurs.length >= 2){
+  //       const otherDinos = this.props.dinosaurs.filter(dinosaur => dinosaur.id !== this.props.dinosaur.id)
+  //       this.props.onDelete(otherDinos[0].id)
+  //       this.buttonDisappear()
+  //     }
+  //     else {
+  //       this.props.onDelete(this.props.dinosaur.id)
+  //     }
+  //   }
+  // }
 
   render(){
     if(this.state.showBoolean){

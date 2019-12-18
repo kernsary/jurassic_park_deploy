@@ -62,15 +62,16 @@ class DinosaurCreateForm extends Component {
   return(
     <div>
     <h2>Add a new dinosaur</h2>
-    <p>Max 4 to a paddock</p>
+    <h4>Max 4 to a paddock</h4>
     <form onSubmit={this.handleSubmit}>
-    <label id="species" value="species">Enter species: </label>
+    <h4><label id="species" value="species">Enter species: </label></h4>
     <input id="species" type="text" onChange={this.handleSpecies}/>
     <select onChange={this.handleFoodType}>
     <option disabled selected>Choose food type</option>
     <option value="meat">Meat</option>
     <option value="plants">Plants</option>
     </select>
+    <br/>
     <select onChange={this.handlePaddock}>
     <option disabled selected>Choose paddock</option>
       {paddockNodes}

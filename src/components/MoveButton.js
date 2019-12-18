@@ -8,7 +8,7 @@ const MoveButton = (props) => {
 
   if(props.foodType === "plants"){
     return(
-      <button onClick={handleMove}>Move to another paddock</button>
+      <button onClick={handleMove}>Move</button>
     )
   }
   return (<div></div>)

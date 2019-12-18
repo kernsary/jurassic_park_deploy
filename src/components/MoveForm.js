@@ -35,7 +35,7 @@ class MoveForm extends Component {
   if(this.props.show){
     return(
       <div>
-      <h1>Choose which paddock to move your dinosaur to</h1>
+      <h2>Which paddock to move to?</h2>
       <form onSubmit={this.handleSubmit}>
       <select onChange={this.handlePaddock}>
       <option disabled selected>Choose paddock</option>

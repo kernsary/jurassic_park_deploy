@@ -28,8 +28,9 @@ class ParkBox extends Component {
     request.get('/paddocks')
     .then((data) => {
       this.setState({paddocks: data._embedded.paddocks})
-    })
+      })
   }
+
 
   componentDidMount(){
     this.getPaddocks()
@@ -67,6 +68,7 @@ class ParkBox extends Component {
   }
 
   render(){
+
     return(
       <div>
 

@@ -7,7 +7,8 @@ class DinosaurCreateForm extends Component {
     this.state = {
       species: "",
       foodType: "",
-      paddock: null
+      paddock: null,
+      selectedPaddockId: null
     }
 
     this.handleSpecies = this.handleSpecies.bind(this)
@@ -30,18 +31,28 @@ class DinosaurCreateForm extends Component {
 
   handlePaddock(event){
     this.setState(
-      {paddock: "http://localhost:8080/paddocks/" + event.target.value}
+      {paddock: "http://localhost:8080/paddocks/" + event.target.value,
+    selectedPaddockId: event.target.value}
     )
   }
 
   handleSubmit(event){
     event.preventDefault()
-    this.props.createDinosaur(this.state)
+    const selectedPaddock = this.props.paddocks.filter(paddock => {
+      return paddock.id == this.state.selectedPaddockId
+    })[0]
+    if(selectedPaddock.dinosaurs.length < 4)
+    {this.props.createDinosaur({
+      species: this.state.species,
+      foodType: this.state.foodType,
+      paddock: this.state.paddock
+    })}
   }
 
   render(){
 
-    const paddockNodes = this.props.paddocks.map((paddock, index) => {
+    const paddockNodes = this.props.paddocks
+    .map((paddock, index) => {
       return(
         <option key={index} value={paddock.id}>{paddock.name}</option>
       )

@@ -12,9 +12,11 @@ class ParkBox extends Component {
     this.state = {
       paddocks: [],
       showBoolean: false,
-      chosenDinosaur: null
+      chosenDinosaur: null,
+      livingDinosaurs: 0
     }
     this.getPaddocks = this.getPaddocks.bind(this);
+    this.getDinosarus = this.getDinosaurs.bind(this);
     this.handlePaddockPost = this.handlePaddockPost.bind(this);
     this.createDinosaur = this.createDinosaur.bind(this);
     this.deleteDinosaur = this.deleteDinosaur.bind(this);
@@ -26,9 +28,15 @@ class ParkBox extends Component {
   getPaddocks(){
     const request = new Request()
     request.get('/paddocks')
-    .then((data) => {
-      this.setState({paddocks: data._embedded.paddocks})
-      })
+    .then((data) => {this.setState({paddocks: data._embedded.paddocks})
+    })
+    .then(() => {this.getDinosaurs()})
+  }
+
+  getDinosaurs(){
+    const request = new Request()
+    request.get('/dinosaurs')
+    .then((data) => {this.setState({livingDinosaurs: data._embedded.dinosaurs.length})})
   }
 
 
@@ -71,7 +79,7 @@ class ParkBox extends Component {
 
     return(
       <div>
-
+      <p>Dinosaurs in park: {this.state.livingDinosaurs}</p>
       <PaddockCreateForm paddocks={this.state.paddocks}
       onFormSubmit={this.handlePaddockPost}/>
       <DinosaurCreateForm paddocks={this.state.paddocks}

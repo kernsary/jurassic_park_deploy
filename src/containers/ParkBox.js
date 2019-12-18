@@ -83,6 +83,8 @@ class ParkBox extends Component {
 
     return(
       <div>
+      <h1>Dinoworld</h1>
+      <h3>Can you keep enough dinosaurs alive to win?</h3>
       <p>Dinosaurs in park: {this.state.livingDinosaurs}</p>
       <PaddockCreateForm paddocks={this.state.paddocks}
       onFormSubmit={this.handlePaddockPost}/>

@@ -61,7 +61,8 @@ class DinosaurCreateForm extends Component {
 
   return(
     <div>
-    <h1>Add a new dinosaur</h1>
+    <h2>Add a new dinosaur</h2>
+    <p>Max 4 to a paddock</p>
     <form onSubmit={this.handleSubmit}>
     <label id="species" value="species">Enter species: </label>
     <input id="species" type="text" onChange={this.handleSpecies}/>

@@ -85,7 +85,7 @@ class ParkBox extends Component {
       <div className="body-wrapper">
       <div className="bar-wrapper">
       <div className="bar-item">
-      <h1>Dinoworld</h1>
+      <h1>DinoWorld</h1>
       <h3>Can you keep enough dinosaurs alive to win?</h3>
       <h3>They are hungry!</h3>
       <h3>Dinosaurs in park: {this.state.livingDinosaurs}</h3>

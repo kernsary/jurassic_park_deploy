@@ -93,10 +93,8 @@ input, select {
   font-size: 100px;
   color: Yellow;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.win-item h1 {
-  width: 2000px;
+  width: 4000px;
 }

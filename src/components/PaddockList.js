@@ -10,7 +10,7 @@ const PaddockList = (props) => {
   const paddockNodes = props.paddocks.map((paddock, index) => {
     return(
       <li key={index} className="paddock-item">
-      <h4>{paddock.name}</h4>
+      <h3>{paddock.name}</h3>
       <DinosaurList dinosaurs={paddock.dinosaurs}
       onDelete={props.onDelete}
       onMove={props.onMove}

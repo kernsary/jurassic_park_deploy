@@ -65,7 +65,7 @@ class DinosaurCreateForm extends Component {
     <h4>Max 4 to a paddock</h4>
     <form onSubmit={this.handleSubmit}>
     <h4><label id="species" value="species">Enter species: </label></h4>
-    <input id="species" type="text" onChange={this.handleSpecies}/>
+    <input id="species" type="text" placeholder="Species" onChange={this.handleSpecies}/>
     <select onChange={this.handleFoodType}>
     <option disabled selected>Choose food type</option>
     <option value="meat">Meat</option>

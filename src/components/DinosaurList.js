@@ -8,19 +8,19 @@ const DinosaurList = (props) => {
   const dinosaurNodes =
   props.dinosaurs.map((dinosaur, index) => {
     return(
-      <li key={index} className="dinosaur-item">
+      <p key={index} className="dinosaur-item">
       <h4>{dinosaur.species}</h4>
       <FeedButton dinosaur={dinosaur} dinosaurs={props.dinosaurs} onDelete={props.onDelete}/>
       <DeleteButton id={dinosaur.id} onDelete={props.onDelete}/>
       <MoveButton id={dinosaur.id} foodType={dinosaur.foodType} onMove={props.onMove}/>
-      </li>
+      </p>
     )
   })
 
   return(
-    <ul className="dinosaur-list">
+    <div className="dinosaur-list">
     {dinosaurNodes}
-    </ul>
+    </div>
   )
 }
 

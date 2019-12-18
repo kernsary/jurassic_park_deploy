@@ -77,9 +77,15 @@ class ParkBox extends Component {
 
   render(){
 
-    if(this.state.livingDinosaurs > 18){
-      return(<h1>You win!</h1>)
-    }
+    //if(this.state.livingDinosaurs > 18){
+      return(
+            <div className="body-wrapper">
+                <div className="win-item">
+                  <h1>You Win!</h1>
+                </div>
+            </div>
+          )
+    //}
 
     return(
       <div className="body-wrapper">

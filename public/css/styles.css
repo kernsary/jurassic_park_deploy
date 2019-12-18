@@ -88,3 +88,15 @@ input, select {
   border-style: solid;
   border-radius: 3%;
 }
+
+.win-item {
+  font-size: 100px;
+  color: Yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.win-item h1 {
+  width: 2000px;
+}

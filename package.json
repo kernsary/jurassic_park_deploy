@@ -32,8 +32,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
 
-
+  //  "proxy": "https://still-stream-02101.herokuapp.com/"
 
 }
